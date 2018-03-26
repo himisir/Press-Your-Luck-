@@ -18,7 +18,7 @@ int main()
     {
         line();
         line();
-        cout<<"\t\tEnter the numbers of players: \n";
+        cout<<"\t\tEnter the number of players: \n";
         cin>>n;
         cout<<"\n\t\tEnter each of your names: \n";
         for(i=0; i<n; i++)
