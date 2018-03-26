@@ -11,9 +11,9 @@ int main()
 
     while(1)
     {
-        cout<<"Enter the numbers of players: \n";
+        cout<<"\t\t\tEnter the numbers of players: \n";
         cin>>n;
-        cout<<"\n\tEnter each of your names: \n";
+        cout<<"\n\t\t\tEnter each of your names: \n";
         for(i=0; i<n; i++)
         {
             cout<<"Player "<<i+1<<"\n";
@@ -22,7 +22,9 @@ int main()
         }
 
         getchar();
-        cout<<"\n\n\t\t\tLets Begin!!\n\n";
+        cout<<"\n\n\tLets Begin!!\n\n";
+        getchar();
+        cout<<"\t\tYour move "<<name[0]<<"!\n\n";
         getchar();
 
         for(i=0; i<n; i++)
@@ -33,7 +35,7 @@ int main()
             sc=0;
             for(j=0; j<10; j++)
                 {
-                    cout<<"\t\t\tPress Your luck!\n";
+                    cout<<"\tPress Your luck!\n";
 
                     getchar();
 
@@ -43,17 +45,17 @@ int main()
                     r1=(rand()%10)-10;
                     r2=(rand()%20)+11;
 
-                    if(i==r||r<=10&&r>=8||r>=2&&r<=4)
+                    if(i==r||r%3==0)
                     {
 
                         if(rr==1)
                         {
-                            cout<<"\t\t\tBAD LUCK!\n\t\t"<<r1<<"\n";
+                            cout<<"BAD LUCK!\n"<<r1<<"\n";
                             sc=sc+r1;
                         }
                         else
                         {
-                            cout<<"\t\t\tGOOD LUCK!\n\t\t"<<r2<<"\n";
+                            cout<<"GOOD LUCK!\n"<<r2<<"\n";
 
                             sc+=r2;
                         }
@@ -61,7 +63,7 @@ int main()
                     }
                     else
                     {
-                        cout<<"\t\t"<<r<<"\n";
+                        cout<<"Hmmm...\n"<<r<<"\n";
                         sc=sc+r;
                     }
 
@@ -73,7 +75,7 @@ int main()
 
                 if(i<n-1)
                 {
-                    cout<<"\n\n\t\t\tYour move "<<name[i]<<"!\n\t\t\t";
+                    cout<<"\n\n\t\t\tYour move "<<name[i+1]<<"!\n\t\t\t";
                 }
 
 
@@ -131,8 +133,8 @@ int main()
 
         }
 
-        cout<<"\t\tPress: \n";
-        cout<<"\t\tANOTHER GAME==> 1\n"<<"\t\tQUIT==> 0\n";
+        cout<<"\n\n\tPress: \n\n";
+        cout<<"\t\tANOTHER GAME ==> 1\n"<<"\t\tQUIT         ==> 0\n";
         cin>>c;
         if(c==0) break;
 
