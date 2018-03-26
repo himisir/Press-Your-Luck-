@@ -1,19 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
+
+void line(void)
+{
+    cout<<"---------------------------------------------------------\n";
+}
 int main()
 {
     srand(time(0));
 
-    int r, c, rr, r1, r2, i, j, k, p[11], q[11], l, n, x, y, sc;
+    int r, c, rr, r1, r2, i, j, cnt, k, p[11], q[11], l, n, x, y, sc;
     char a;
 
     string name[11];
 
     while(1)
     {
-        cout<<"\t\t\tEnter the numbers of players: \n";
+        line();
+        line();
+        cout<<"\t\tEnter the numbers of players: \n";
         cin>>n;
-        cout<<"\n\t\t\tEnter each of your names: \n";
+        cout<<"\n\t\tEnter each of your names: \n";
         for(i=0; i<n; i++)
         {
             cout<<"Player "<<i+1<<"\n";
@@ -24,38 +31,37 @@ int main()
         getchar();
         cout<<"\n\n\tLets Begin!!\n\n";
         getchar();
-        cout<<"\t\tYour move "<<name[0]<<"!\n\n";
-        getchar();
 
         for(i=0; i<n; i++)
         {
-            cout<<"\n\n\n\tHere "<<name[i]<<" goes!\n\n";
+            cout<<"\n\nYour move "<<name[i]<<"!\n";
+            line();
             getchar();
-
             sc=0;
+            cnt=1;
             for(j=0; j<10; j++)
                 {
-                    cout<<"\tPress Your luck!\n";
+                    cout<<cnt<<". Press Your luck!\n";
 
                     getchar();
 
 
                     r=(rand()%10)+1;
                     rr=(rand()%2)+1;
-                    r1=(rand()%10)-10;
-                    r2=(rand()%20)+11;
+                    r1=((rand()%10)-21)%11;
+                    r2=((rand()%10)+11)%21;
 
-                    if(i==r||r%3==0)
+                    if(i==r||r%4==1)
                     {
 
                         if(rr==1)
                         {
-                            cout<<"BAD LUCK!\n"<<r1<<"\n";
+                            cout<<"\n\n\t  "<<r1<<"\n\tBAD LUCK!\n\n\n";
                             sc=sc+r1;
                         }
                         else
                         {
-                            cout<<"GOOD LUCK!\n"<<r2<<"\n";
+                            cout<<"\n\n\t    "<<r2<<"\n\tGOOD LUCK!\n\n\n";
 
                             sc+=r2;
                         }
@@ -63,20 +69,15 @@ int main()
                     }
                     else
                     {
-                        cout<<"Hmmm...\n"<<r<<"\n";
+                        cout<<"\n\n\t     "<<r<<"\n\tMANGO PEOPLE!\n\n\n";
                         sc=sc+r;
                     }
+                    cnt++;
 
                 }
 
                 p[i]=sc;
                 q[i]=sc;
-
-
-                if(i<n-1)
-                {
-                    cout<<"\n\n\t\t\tYour move "<<name[i+1]<<"!\n\t\t\t";
-                }
 
 
         }
@@ -99,9 +100,13 @@ int main()
             if(x>0) break;
         }
 
+        line();
 
-        cout<<"\n\n\t\t\t"<<name[y]<<"\n\t\t\tWins!\n\n";
+        cout<<"\n\n\t\t\t"<<name[y]<<"\n\t\t\tWins!\n\n\n";
+        line();
         getchar();
+
+        line();
 
         cout<<"\n\t\tScore Board: \n\n";
 
@@ -129,13 +134,15 @@ int main()
 
             }
 
-            cout<<i+1<<". "<<p[i]<<" ---- "<<name[j]<<"\n";
+            cout<<"\t\t"<<i+1<<". "<<name[j]<<" ---- "<<p[i]<<"\n";
 
         }
 
-        cout<<"\n\n\tPress: \n\n";
+        cout<<"\n\n\t\tPress: \n\n";
+        line();
         cout<<"\t\tANOTHER GAME ==> 1\n"<<"\t\tQUIT         ==> 0\n";
         cin>>c;
+        line();
         if(c==0) break;
 
     }
